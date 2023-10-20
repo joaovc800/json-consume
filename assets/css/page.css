@@ -12,12 +12,18 @@ div#comments {
     min-height: 0;
 }
 
-div#comments::-webkit-scrollbar {
+div#card-videos {
+    max-height: 500px;
+    overflow: auto;
+    min-height: 0;
+}
+
+div#comments::-webkit-scrollbar,  div#card-videos::-webkit-scrollbar{
     width: 5px;
     background-color: transparent
 }
 
-div#comments::-webkit-scrollbar-thumb {
+div#comments::-webkit-scrollbar-thumb, div#card-videos::-webkit-scrollbar-thumb {
     background-color: #ddd;
 }
 

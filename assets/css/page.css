@@ -1,0 +1,58 @@
+@import './colors.css';
+
+.control-comment {
+    width: 3rem;
+    height: 100%;
+    border-radius: 0.4rem;
+}
+
+div#comments {
+    height: 500px;
+    overflow: auto;
+    min-height: 0;
+}
+
+div#comments::-webkit-scrollbar {
+    width: 5px;
+    background-color: transparent
+}
+
+div#comments::-webkit-scrollbar-thumb {
+    background-color: #ddd;
+}
+
+.thumbnail-profile {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+}
+
+.thumbnail-profile img {
+    width: 100%;
+    border-radius: 50%;
+}
+
+.div-search .fa-search {
+    font-size: 2rem;
+    width: 3rem;
+}
+
+.div-search .input-search {
+    width: 100%;
+    border: 0;
+}
+
+.div-search .input-search:focus {
+    outline: 0;
+}
+
+.div-content-video>* {
+    pointer-events: none;
+}
+
+.name-video {
+    white-space: nowrap;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

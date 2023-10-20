@@ -1,0 +1,23 @@
+[
+    {
+        "id-video": 0 ,
+        "name": "João",
+        "date": "1 month ago",
+        "comment": "Impressive! Though it seems the drag feature could be improved. But overall it looks incredible. You've nailed the design and the responsiveness at various breakpoints works really well",
+        "profile": "avatar.png"
+    },
+    {
+        "id-video": 0 ,
+        "name": "Beulah B. Garman",
+        "date": "Now",
+        "comment": "Lorem ipsum sit at donec fermentum taciti, curae fringilla phasellus id dui, conubia eleifend duis nulla quam. quisque nostra quis rutrum tortor in quisque curabitur, nulla nisi eros curabitur porttitor rutrum aenean risus, dui justo vulputate at netus dictum. pharetra amet a id molestie etiam dapibus tempor sem aliquam taciti, fusce sapien libero et auctor aptent amet senectus in, ullamcorper sagittis auctor risus himenaeos feugiat urna egestas sagittis. luctus enim diam senectus turpis fames adipiscing pretium sed habitant vel augue ac, ultrices feugiat per diam fames nunc sem lobortis ut cursus",
+        "profile": "avatar1.png"
+    },
+    {
+        "id-video": 0 ,
+        "name": "Dianna E. Sims",
+        "date": "1 week latter",
+        "comment": "Lorem ipsum sit at donec fermentum taciti, curae fringilla phasellus id dui, conubia eleifend duis nulla quam. quisque nostra quis rutrum tortor in quisque curabitur, nulla nisi eros curabitur porttitor rutrum aenean risus, dui justo vulputate at netus dictum. pharetra amet a id molestie etiam dapibus tempor sem aliquam taciti, fusce sapien libero et auctor aptent amet senectus in, ullamcorper sagittis auctor risus himenaeos feugiat urna egestas sagittis. luctus enim diam senectus turpis fames adipiscing pretium sed habitant vel augue ac, ultrices feugiat per diam fames nunc sem lobortis ut cursus",
+        "profile": "avatar2.png"
+    }
+]

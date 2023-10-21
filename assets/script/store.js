@@ -8,7 +8,7 @@ export async function setStoreInicialize(){
 
     for (const key in stores) {
         if (stores.hasOwnProperty.call(stores, key)) {
-            createStore(key, stores[key].record)
+            createStore(key, stores[key])
         }
     }
 }

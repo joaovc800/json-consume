@@ -2,26 +2,26 @@ import routes from './routes.js'
 import { fetchHeaders } from './fetch.js'
 import { loading } from './loading.js'
 
-export async function listVideos(){
+export async function listVideos(params = ''){
     loading(true)
-    const request = await fetch(routes.videos, { headers: fetchHeaders })
+    const request = await fetch(routes.videos  + params, { headers: fetchHeaders })
     const response = await request.json()
     loading(false)
     return response
 }
 
-export async function listComments(){
+export async function listComments(params = ''){
     loading(true)
-    const request = await fetch(routes.comments, { headers: fetchHeaders })
+    const request = await fetch(routes.comments + params, { headers: fetchHeaders })
     const response = await request.json()
     loading(false)
     return response
 }
 
-export async function putComment(data){
+export async function postComment(data){
     loading(true)
     const request = await fetch(routes.comments, { 
-        method: 'PUT',
+        method: 'POST',
         headers: fetchHeaders,
         body: JSON.stringify(data)
     })
@@ -31,10 +31,10 @@ export async function putComment(data){
     return response
 }
 
-export async function putVideo(data){
+export async function postVideo(data){
     loading(true)
     const request = await fetch(routes.videos, { 
-        method: 'PUT',
+        method: 'POST',
         headers: fetchHeaders,
         body: JSON.stringify(data)
     })

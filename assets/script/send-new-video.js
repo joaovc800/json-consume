@@ -1,5 +1,5 @@
 import { getStore, createStore } from "./store.js";
-import { putVideo } from "./list-videos.js";
+import { postVideo } from "./list-videos.js";
 
 const form = document.getElementById('form-new-video')
 const url = document.getElementById('url-video')
@@ -28,7 +28,7 @@ const replaceForEmbed = link => {
 
 form.addEventListener('submit', async e => {
     e.preventDefault()
-    const postNewVideo = { icon: 'fa-youtube' }
+    
 
     url.classList.remove('border-danger', 'url-not-valid')
 
@@ -41,17 +41,19 @@ form.addEventListener('submit', async e => {
 
     const videos = getStore('videos')
 
-    postNewVideo.url = urlEmbed
-    postNewVideo.name = name.value
-    postNewVideo.id = videos.length
+    const postNewVideo = {
+        icon: 'fa-youtube',
+        url: urlEmbed,
+        name: name.value
+    }
 
     videos.push(postNewVideo)
 
     createStore('videos', videos)
 
-    const response = await putVideo(getStore('videos'))
+    const response = await postVideo(postNewVideo)
 
-    if(response.record) window.location = './index.html'
+    if(response.id) window.location = './index.html'
 
 })
 

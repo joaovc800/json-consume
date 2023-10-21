@@ -1,7 +1,7 @@
 import { cardVideos } from './card-videos.js'
 import { cardComments } from './card-comments.js'
 import { setStoreInicialize, getStore, createStore } from './store.js'
-import { putComment } from './list-videos.js'
+import { postComment, listComments } from './list-videos.js'
 
 await setStoreInicialize()
 
@@ -12,12 +12,14 @@ const inputSearch = document.querySelector('.input-search')
 const btnSendComment = document.getElementById('send-comment')
 const textArea = document.getElementById('text-area-comment')
 
+iframeVideo.src = getStore('videos')[0].url
+
 const releaseDOM = string => {
     const parser = new DOMParser()
     return parser.parseFromString(string, 'text/html').body.firstChild
 }
 
-const alternateVideo = (target, comments) => {
+const alternateVideo = async target => {
     
     const actives = Array.from(document.querySelectorAll('.active-show'))
     actives.forEach(a => a.classList.remove('active-show'))
@@ -27,7 +29,9 @@ const alternateVideo = (target, comments) => {
     divCardComments.innerHTML = ''
     iframeVideo.src = target.getAttribute('url')
     const id = target.getAttribute('id')
-    const commentsFiltered = comments.filter(c => c['id-video'] == id)
+
+    const commentsFiltered = await listComments(`?id-video=${id}`)
+
     divCardComments.appendChild(releaseDOM(cardComments(commentsFiltered)))
 
     btnSendComment.setAttribute('id-video', id)
@@ -77,7 +81,7 @@ divCardComments.appendChild(releaseDOM(comments))
 document.body.addEventListener('click', e => {
     const target = e.target
 
-    if(target.classList.contains('div-content-video')) alternateVideo(target, getStore('comments'))
+    if(target.classList.contains('div-content-video')) alternateVideo(target)
 
     if(target.classList.contains('like-comment')) like(target)
 })
@@ -117,7 +121,7 @@ btnSendComment.addEventListener('click', async e => {
 
     createStore('comments', comments)
 
-    const response = await putComment(getStore('comments'))
+    const response = await postComment(data[0])
 
     console.log(response);
 

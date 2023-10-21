@@ -62,3 +62,8 @@ div#comments::-webkit-scrollbar-thumb, div#card-videos::-webkit-scrollbar-thumb 
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+.like-comment:hover::before{
+    content: "\f004";
+    font-weight: 900;
+}

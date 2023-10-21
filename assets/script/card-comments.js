@@ -6,22 +6,13 @@ export function cardComments(data){
         <div class="card border-0 mb-4">
             <div class="card-body">
                 <div class="row">
-                    <div class="col-2">
-                        <div class="d-flex flex-column bg-purple-light justify-content-around control-comment p-2">
-                            <span role="button" class="align-self-center">
-                                <i class="fas fa-plus text-purple-medium"></i>
-                            </span>
-                            <span class="align-self-center">
-                                <strong class="text-purple-dark">
-                                    12
-                                </strong>
-                            </span>
-                            <span role="button" class="align-self-center">
-                                <i class="fas fa-minus text-purple-medium"></i>
-                            </span>
+                    <div class="col-lg-1 col-md-2 col-sm-12">
+                        <div class="d-flex flex-lg-row flex-md-column mb-3">
+                            <i role="button" class="like-comment far fa-heart fs-3 text-danger"></i>
+                            <span class="mx-2">${data.likes}</span>
                         </div>
                     </div>
-                    <div class="col-10 d-flex flex-column">
+                    <div class="col-lg-11 col-md-10 col-sm-12 d-flex flex-column">
                         <div class="d-flex flex-row justify-content-between">
                             <div class="d-flex flex-row align-items-center">
                                 <div class="thumbnail-profile">

@@ -7,3 +7,15 @@ export async function listVideos(){
 
     return response
 }
+
+export async function postComment(data){
+    const request = await fetch(routes.comments, { 
+        method: 'POST',
+        headers: fetchHeaders,
+        body: JSON.stringify(data)
+    })
+
+    const response = await request.json()
+
+    return response
+}

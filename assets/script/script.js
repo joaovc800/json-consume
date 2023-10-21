@@ -125,5 +125,6 @@ btnSendComment.addEventListener('click', async e => {
 
     textArea.value = ''
 
+    divCardComments.scrollTo(0, divCardComments.scrollHeight);
    
 })

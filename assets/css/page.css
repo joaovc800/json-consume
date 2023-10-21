@@ -1,4 +1,5 @@
 @import './colors.css';
+@import './loading.css';
 
 .control-comment {
     width: 3rem;
@@ -56,6 +57,21 @@ div#comments::-webkit-scrollbar-thumb, div#card-videos::-webkit-scrollbar-thumb 
     pointer-events: none;
 }
 
+.div-content-video:hover{
+    box-shadow: inset 0 0 1px 1px red !important;
+    transition: all linear .2s !important;
+}
+
+.active-show{
+    background-color: #ff000073 !important;
+    transition: all linear .2s;
+}
+
+.active-show > *{
+    color: #ff0000 !important;
+    transition: all linear .2s;
+}
+
 .name-video {
     white-space: nowrap;
     width: 100%;
@@ -75,6 +91,6 @@ div#comments::-webkit-scrollbar-thumb, div#card-videos::-webkit-scrollbar-thumb 
 }
 
 form:has(.url-not-valid) label[for=url-video]::after{
-    content: ' * URL is not youtube embed';
+    content: ' * The URL belongs to the YouTube domain';
     color: #f00;
 }

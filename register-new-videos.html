@@ -19,7 +19,7 @@
 <body class="bg-light">
     <nav class="navbar navbar-dark bg-dark sticky-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Content Hub</a>
+            <a class="navbar-brand" href="index.html">Content Hub</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
                 data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
                 <span class="navbar-toggler-icon"></span>
@@ -37,21 +37,7 @@
                             <a class="nav-link" aria-current="page" href="index.html">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="register-new-videos.html">register new videos</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                Dropdown
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-dark">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
+                            <a class="nav-link active" href="register-new-videos.html">Register new videos</a>
                         </li>
                     </ul>
                 </div>
@@ -60,23 +46,38 @@
     </nav>
     <div class="container-fluid px-5 pt-5">
         <h1 class="text-secondary">Regiter new videos</h1>
-        <div class="container mt-4">
-            <form class="d-flex gap-3 flex-column" id="form-new-video">
-                <div>
-                    <label for="name-video" role="button" class="mb-2">Name Video</label>
-                    <input required type="text" class="form-control form-control-lg" name="name" id="name-video" placeholder="Name Video">
-                </div>
-                <div>
-                    <label for="url-video" role="button" class="mb-2">URL embed</label>
-                    <input required type="text" class="form-control form-control-lg" name="url" id="url-video" placeholder="URL embed">
-                </div>
-                <div>
-                    <button type="submit" class="btn btn-primary" id="submit-new-video">
-                        Send new video
-                    </button>
-                </div>
-                
-            </form>
+        <div class="row flex-row-reverse mt-4">
+            <div class="col-lg-6 col-sm-12 col-md-6">
+                <iframe 
+                    id="iframe-new-videos"
+                    class="w-100 h-100"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen
+                    style="border-radius: 12px";
+                >
+                </iframe>
+            </div>
+
+            <div class="col-lg-6 col-sm-12 col-md-6">
+                <form class="d-flex gap-3 flex-column" id="form-new-video">
+                    <div>
+                        <label for="name-video" role="button" class="mb-2">Name Video</label>
+                        <input required type="text" class="form-control form-control-lg" name="name" id="name-video" placeholder="Name Video">
+                    </div>
+                    <div>
+                        <label for="url-video" role="button" class="mb-2">URL embed</label>
+                        <input required type="text" class="form-control form-control-lg" name="url" id="url-video" placeholder="URL embed">
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-lg btn-primary" id="submit-new-video">
+                            Send new video
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+            
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"

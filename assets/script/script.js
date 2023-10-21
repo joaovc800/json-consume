@@ -3,7 +3,7 @@ import { cardComments } from './card-comments.js'
 import { setStoreInicialize, getStore, createStore } from './store.js'
 import { putComment } from './list-videos.js'
 
-//await setStoreInicialize()
+await setStoreInicialize()
 
 const divCardVideos = document.getElementById('card-videos')
 const divCardComments = document.getElementById('comments')
@@ -18,6 +18,12 @@ const releaseDOM = string => {
 }
 
 const alternateVideo = (target, comments) => {
+    
+    const actives = Array.from(document.querySelectorAll('.active-show'))
+    actives.forEach(a => a.classList.remove('active-show'))
+    
+    target.classList.add('active-show')
+    
     divCardComments.innerHTML = ''
     iframeVideo.src = target.getAttribute('url')
     const id = target.getAttribute('id')

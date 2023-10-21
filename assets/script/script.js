@@ -1,6 +1,9 @@
-import { listVideos, postComment } from './list-videos.js'
 import { cardVideos } from './card-videos.js'
 import { cardComments } from './card-comments.js'
+import { setStoreInicialize, getStore, createStore } from './store.js'
+import { putComment } from './list-videos.js'
+
+//await setStoreInicialize()
 
 const divCardVideos = document.getElementById('card-videos')
 const divCardComments = document.getElementById('comments')
@@ -58,19 +61,9 @@ const like = target => {
     
 }
 
-const r = await fetch('../../mock.json')
-const j = await r.json()
+const cards = cardVideos(getStore('videos'))
 
-
-
-
-//const { record } = await listVideos()
-const cards = cardVideos(j)
-
-const r2 = await fetch('../../mock-comments.json')
-const j2 = await r2.json()
-
-const comments = cardComments(j2)
+const comments = cardComments(getStore('comments'))
 
 divCardVideos.appendChild(releaseDOM(cards))
 divCardComments.appendChild(releaseDOM(comments))
@@ -78,7 +71,7 @@ divCardComments.appendChild(releaseDOM(comments))
 document.body.addEventListener('click', e => {
     const target = e.target
 
-    if(target.classList.contains('div-content-video')) alternateVideo(target, j2)
+    if(target.classList.contains('div-content-video')) alternateVideo(target, getStore('comments'))
 
     if(target.classList.contains('like-comment')) like(target)
 })
@@ -103,7 +96,7 @@ btnSendComment.addEventListener('click', async e => {
 
     const data = [
         {
-            "id-video": target.getAttribute('id-video') ,
+            "id-video": parseInt(target.getAttribute('id-video')) ,
             "name": "You",
             "date": "Now",
             "comment": textArea.value,
@@ -112,11 +105,19 @@ btnSendComment.addEventListener('click', async e => {
         }
     ]
 
-    const post = await postComment(data[0])
+    const comments = getStore('comments')
+
+    comments.push(data[0])
+
+    createStore('comments', comments)
+
+    const response = await putComment(getStore('comments'))
+
+    console.log(response);
 
     divCardComments.appendChild(releaseDOM(cardComments(data)))
 
     textArea.value = ''
 
-    console.log(post);
+   
 })

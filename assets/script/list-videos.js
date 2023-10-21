@@ -8,9 +8,28 @@ export async function listVideos(){
     return response
 }
 
-export async function postComment(data){
+export async function listComments(){
+    const request = await fetch(routes.comments, { headers: fetchHeaders })
+    const response = await request.json()
+
+    return response
+}
+
+export async function putComment(data){
     const request = await fetch(routes.comments, { 
-        method: 'POST',
+        method: 'PUT',
+        headers: fetchHeaders,
+        body: JSON.stringify(data)
+    })
+
+    const response = await request.json()
+
+    return response
+}
+
+export async function putVideo(data){
+    const request = await fetch(routes.videos, { 
+        method: 'PUT',
         headers: fetchHeaders,
         body: JSON.stringify(data)
     })

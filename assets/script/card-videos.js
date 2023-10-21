@@ -3,7 +3,7 @@ export function cardVideos(data){
     data.forEach(data => {
         cards += `
             <div name="${data.name}" id="${data.id}" url="${data.url}" role="button" class="div-content-video d-flex align-items-center shadow py-3 px-5 mb-4">
-                <i class="fs-4 fas ${data.icon}"></i>
+                <i class="fs-4 fa-brands ${data.icon}"></i>
                 <span class="fw-bold mx-2 text-muted opacity-50 name-video">${data.name}</span>
             </div>
         `

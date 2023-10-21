@@ -67,3 +67,14 @@ div#comments::-webkit-scrollbar-thumb, div#card-videos::-webkit-scrollbar-thumb 
     content: "\f004";
     font-weight: 900;
 }
+
+.url-not-valid, .url-not-valid:focus{
+    background-color: rgba(255, 0, 0, 0.164);
+    color: #f00;
+    box-shadow: 0 0 0 0.25rem rgba(255, 0, 0, 0.26);
+}
+
+form:has(.url-not-valid) label[for=url-video]::after{
+    content: ' * URL is not youtube embed';
+    color: #f00;
+}
